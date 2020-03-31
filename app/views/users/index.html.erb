@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+		<div class='body'>
+			<p id="notice"><%= notice %></p>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-3">
+						<%= render 'books/list', book: @book, user: current_user %>
+					</div>
+          <div class="col-xs-9">
+
+            <h2>Users</h2>
+            <table class="table">
+              <thead>
+                <tr> 
+                  <th>image</th>
+                  <th>name</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td>
+                      <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %>
+                    </td>
+                    <td>
+                      <%= user.name %>
+                    </td>
+                    <td>
+                      <%= link_to "Show", user_path(user.id) %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          </div>
+          <footer>
+            <div class='container'>
+              <div class='row'>
+                <div class='col-xs-3 col-xs-offset-9'>
+                  <p>CopyRight Infratop.inc</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
